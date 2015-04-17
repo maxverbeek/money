@@ -8,9 +8,9 @@ $field = isset($_GET['f']) && in_array($_GET['f'], ['titel', 'band', 'jaar'])
 		? $_GET['f']
 		: 'titel';
 
-if (isset($_POST[$field]))
+if (isset($_POST['search']))
 {
-	$fieldval = $_POST[$field];
+	$fieldval = $_POST['search'];
 	$results = $db->like('platen', "{$field}, *{$fieldval}*")->result();
 
 	echo "<pre>", print_r($results, true), "</pre>";
