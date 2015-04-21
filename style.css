@@ -1,0 +1,60 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
+
+body
+{
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	color: #444;
+	line-height: 1.6;
+	background-color: #FFF;
+	margin: 0;
+	padding: 0;
+	background-color: #EEEEEE;
+}
+
+.wrapper
+{
+	width: 80%;
+	margin: 0 auto;
+}
+
+.result
+{
+	display: inline-block;
+	width: calc(50% - 50px);
+	box-sizing: border-box;
+	padding: 5px;
+	margin: 20px;
+	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .51);
+	background-color: white;
+}
+
+.result .titel
+{
+	display: block;
+	width: 100%;
+	font-size: 2em;
+}
+
+.result .band, .result .jaar
+{
+	font-weight: 300;
+}
+
+.result .jaar
+{
+	float: right;
+}
+
+@media screen and (max-width: 720px)
+{
+	.wrapper
+	{
+		width: 100%;
+	}
+
+	.result
+	{
+		width: calc(100% - 50px);
+	}
+}
