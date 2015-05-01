@@ -1,13 +1,19 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
 
+html, body
+{
+	/* necessary for centering vertically */
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
 body
 {
 	font-family: 'Roboto', sans-serif;
 	color: #444;
 	line-height: 1.6;
 	background-color: #FFF;
-	margin: 20px;
-	padding: 0;
 	background-color: #EEEEEE;
 }
 
@@ -81,6 +87,122 @@ body
 .tip{background-color:#FFE8A1;border:2px solid #E7CA74;}
 .success{background-color:#B4FFB4;border:2px solid #87E687;}
 .error{background-color:#FFB2B2;border:2px solid #FF8383;}
+
+/* index style */
+
+.stretch
+{
+	text-align: center;
+	white-space: nowrap;
+	height: 100%;
+}
+
+.stretch:before
+{
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em;
+}
+
+.center
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.query
+{
+	margin-top: -50px;
+	width: 410px;
+	background: #333;
+	border-radius: 10px;
+	padding: 10px;
+	padding-top: 30px;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, .87);
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, .87);
+}
+
+.query input[type="radio"]
+{
+	display: none;
+}
+
+.query .semi-button
+{
+	display: inline-block;
+	cursor: pointer;
+	width: 130px;
+	height: 40px;
+	background: #BBDEFB;
+	line-height: 40px;
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.semi-button:first-of-type
+{
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+
+.semi-button:last-of-type
+{
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+}
+
+.radio-menu:checked + .semi-button
+{
+	background: #64B5F6;
+}
+
+.query input
+{
+	display: block;
+	box-sizing: border-box;
+	border: none;
+	background: #64B5F6;
+	color: rgba(0, 0, 0, .87);
+	border-radius: 7px;
+	margin: 20px 10px;
+	padding: 10px;
+	width: calc(100% - 20px);
+}
+
+.query input:focus
+{
+	background-color: #42A5F5;
+	outline: none;
+}
+
+.query input[type="submit"]:hover
+{
+	background-color: #42A5F5;
+	cursor: pointer;
+}
+
+#search::-webkit-input-placeholder
+{
+	color: rgba(0, 0, 0, .51);
+}
+
+#search:-moz-placeholder
+{
+	color: rgba(0, 0, 0, .51);
+	opacity:  1;
+}
+
+#search::-moz-placeholder
+{
+	color: rgba(0, 0, 0, .51);
+	opacity:  1;
+}
+
+#search:-ms-input-placeholder
+{
+	color: rgba(0, 0, 0, .51);
+}
 
 @media screen and (max-width: 720px)
 {

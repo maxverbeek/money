@@ -6,27 +6,36 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<!-- band -->
-	<form action="search.php" method="GET">
-		<input type="text" name="search" placeholder="Band"><br>
-		<input type="hidden" name="f" value="band">
-		<input type="submit" value="Zoek op band">
-	</form>
-	<hr>
+	<div class="stretch">
+		<div class="query center">
+			<form action="search.php" method="GET">
+				<input type="radio" class="radio-menu" name="f" id="titel" value="titel" checked><!--
+				--><label class="semi-button" for="titel">Titel</label><!--
 
-	<!-- titel -->
-	<form action="search.php" method="GET">
-		<input type="text" name="search" placeholder="Titel"><br>
-		<input type="hidden" name="f" value="titel">
-		<input type="submit" value="Zoek op titel">
-	</form>
-	<hr>
+				--><input type="radio" class="radio-menu" name="f" id="band" value="band"><!--
+				--><label class="semi-button" for="band">Band</label><!--
 
-	<!-- jaar -->
-	<form action="search.php" method="GET">
-		<input type="text" name="search" placeholder="Jaar"><br>
-		<input type="hidden" name="f" value="jaar">
-		<input type="submit" value="Zoek op jaar">
-	</form>
+				--><input type="radio" class="radio-menu" name="f" id="jaar" value="jaar"><!--
+				--><label class="semi-button" for="jaar">Jaar</label>
+
+				<input type="text" name="search" id="search" placeholder="Titel">
+				<input type="submit" value="Zoek">
+			</form>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>
+		$(function ()
+		{
+			labels = $('.semi-button');
+			text = $('#search');
+
+			labels.on('click', function ()
+			{
+				text.get(0).placeholder = this.innerText;
+			});
+		});
+	</script>
 </body>
 </html>
