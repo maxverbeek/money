@@ -42,13 +42,13 @@ $c = count($results);
 	<div class="wrapper">
 		<?php if (empty($results)): ?>
 			<div class="error">
-				<span class="right"><a href="index.php">Terug</a></span>
 				<strong>Sorry!</strong> Er zijn geen zoekresultaten gevonden voor <strong><?php echo e($fieldval); ?></strong>.
+				<span class="right"><a href="index.php">Terug</a></span>
 			</div>
 		<?php else: ?>
 			<div class="success">
-				<span class="right"><a href="index.php">Terug</a></span>
 				Er <?php echo plural($c, 'is <strong>1 resultaat', "zijn <strong>{$c} resultaten"); ?></strong> gevonden.
+				<span class="right"><a href="index.php">Terug</a></span>
 			</div>
 		<?php endif; ?>
 
