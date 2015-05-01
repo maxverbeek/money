@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<h1>Marc's kutmuziek</h1>
 	<div class="stretch">
 		<div class="query center">
 			<form action="search.php" method="GET">

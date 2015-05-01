@@ -211,6 +211,16 @@ body
 	color: rgba(0, 0, 0, .51);
 }
 
+h1
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 4em;
+}
+
 @media screen and (max-width: 720px)
 {
 	body
