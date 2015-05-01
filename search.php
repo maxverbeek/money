@@ -36,18 +36,19 @@ $c = count($results);
 	<meta charset="UTF-8">
 	<title>Zoekresultaten voor <?php echo e($fieldval); ?></title>
 	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
 	<div class="wrapper">
 		<?php if (empty($results)): ?>
 			<div class="error">
-				<strong>Sorry!</strong> Er zijn geen zoekresultaten gevonden voor <strong><?php echo e($fieldval); ?></strong>.
 				<span class="right"><a href="index.php">Terug</a></span>
+				<strong>Sorry!</strong> Er zijn geen zoekresultaten gevonden voor <strong><?php echo e($fieldval); ?></strong>.
 			</div>
 		<?php else: ?>
 			<div class="success">
-				Er <?php echo plural($c, 'is <strong>1 resultaat', "zijn <strong>{$c} resultaten"); ?></strong> gevonden.
 				<span class="right"><a href="index.php">Terug</a></span>
+				Er <?php echo plural($c, 'is <strong>1 resultaat', "zijn <strong>{$c} resultaten"); ?></strong> gevonden.
 			</div>
 		<?php endif; ?>
 
