@@ -27,6 +27,7 @@ function plural($count, $singular, $plural = null)
 }
 
 $results = isset($results) ? $results : array();
+$c = count($results);
 
 ?>
 <!DOCTYPE html>
@@ -45,12 +46,7 @@ $results = isset($results) ? $results : array();
 			</div>
 		<?php else: ?>
 			<div class="success">
-				<?php
-					echo plural($c = count($results),
-						"Er is <strong>1 resultaat</strong> gevonden.",
-						"Er zijn <strong>{$c} resultaten</strong> gevonden."
-					);
-				?>
+				Er <?php echo plural($c, 'is <strong>1 resultaat', "zijn <strong>{$c} resultaten"); ?></strong> gevonden.
 				<span class="right"><a href="index.php">Terug</a></span>
 			</div>
 		<?php endif; ?>
