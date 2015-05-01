@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Zoek naar een palat in de database</title>
+	<title>Zoek naar een plaat in de database</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<!-- band -->

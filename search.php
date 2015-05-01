@@ -12,17 +12,36 @@ if (isset($_POST['search']))
 {
 	$fieldval = $_POST['search'];
 	$results = $db->like('platen', "{$field}, *{$fieldval}*")->result();
+}
 
-	echo "<pre>", print_r($results, true), "</pre>";
+function e($str)
+{
+	return htmlentities($str, ENT_QUOTES, "UTF-8");
 }
 
 $results = isset($results) ? $results : array();
 
-foreach ($results as $result)
-{
-	echo "Titel: " . $result->titel . "<br>\n";
-	echo "Band: " . $result->band . "<br>";
-	echo "Jaar: " . $result->jaar . "<br>";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Zoekresultaten voor <?php echo e($fieldval); ?></title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<?php if (empty($results)): ?>
+			<strong>Er zijn geen zoekresultaten gevonden voor <?php echo e($fieldval) ?></strong>.
+		<?php endif; ?>
 
-	echo "<hr>";
-}
+		<?php foreach ($results as $result): ?>
+			<div class="result">
+				<span class="titel"><?php echo e($result->titel); ?></span>
+				<span class="band"><?php echo e($result->band); ?></span>
+				<span class="jaar"><?php echo e($result->jaar); ?></span>
+			</div>
+		<?php endforeach; ?>
+	</div>
+</body>
+</html>
