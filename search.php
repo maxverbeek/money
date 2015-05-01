@@ -8,15 +8,22 @@ $field = isset($_GET['f']) && in_array($_GET['f'], ['titel', 'band', 'jaar'])
 		? $_GET['f']
 		: 'titel';
 
-if (isset($_POST['search']))
+if (isset($_GET['search']))
 {
-	$fieldval = $_POST['search'];
+	$fieldval = $_GET['search'];
 	$results = $db->like('platen', "{$field}, *{$fieldval}*")->result();
 }
 
 function e($str)
 {
 	return htmlentities($str, ENT_QUOTES, "UTF-8");
+}
+
+function plural($count, $singular, $plural = null)
+{
+	$plural = $plural ?: $singular . 's';
+
+	return $count == 1 ? $singular : $plural;
 }
 
 $results = isset($results) ? $results : array();
@@ -32,7 +39,20 @@ $results = isset($results) ? $results : array();
 <body>
 	<div class="wrapper">
 		<?php if (empty($results)): ?>
-			<strong>Er zijn geen zoekresultaten gevonden voor <?php echo e($fieldval) ?></strong>.
+			<div class="error">
+				<strong>Sorry!</strong> Er zijn geen zoekresultaten gevonden voor <strong><?php echo e($fieldval); ?></strong>.
+				<span class="right"><a href="index.php">Terug</a></span>
+			</div>
+		<?php else: ?>
+			<div class="success">
+				<?php
+					echo plural($c = count($results),
+						"Er is <strong>1 resultaat</strong> gevonden.",
+						"Er zijn <strong>{$c} resultaten</strong> gevonden."
+					);
+				?>
+				<span class="right"><a href="index.php">Terug</a></span>
+			</div>
 		<?php endif; ?>
 
 		<?php foreach ($results as $result): ?>
