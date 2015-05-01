@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Zoek naar een plaat in de database</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 	<h1>Marc's kutmuziek</h1>
