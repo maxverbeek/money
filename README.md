@@ -11,4 +11,4 @@ Dit is een schoolproject
 
 [Mobile Preview (Geen resultaten)](http://imgur.com/PbnQAnf)
 
-[Desktop preview (Geen resultaten)](http://imgur.com/7evgNEd)
+[Desktop preview (Geen resultaten)](http://imgur.com/PNiXQT5)
