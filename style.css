@@ -117,5 +117,6 @@ body
 		float: none;
 		display: block;
 		text-align: left;
+		margin-bottom: 10px;
 	}
 }
