@@ -59,6 +59,12 @@ $fieldvalue = isset($_GET['search']) ? $_GET['search'] : '';
 				text.get(0).value = "";
 				text.focus();
 			});
+
+			// Cursor aan het einde van de tekst on focus
+			text.on('focus', function ()
+			{
+				text.value = this.value;
+			});
 		});
 	</script>
 </body>
