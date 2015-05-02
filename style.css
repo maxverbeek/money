@@ -1,0 +1,298 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
+
+html, body
+{
+	/* necessary for centering vertically */
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	font-family: 'Roboto', sans-serif;
+	color: #444;
+	line-height: 1.6;
+	background-color: #FFF;
+	background-color: #EEEEEE;
+}
+
+*
+{
+	font-size: 18px; /* HTML whitespace fix */
+}
+
+.right
+{
+	float: right;
+	text-align: right;
+}
+
+.wrapper
+{
+	max-width: 1100px;
+	margin: 0 auto;
+	font-size: 0; /* HTML whitespace fix */
+}
+
+.result
+{
+	display: inline-block;
+	width: calc(50% - 30px);
+	padding: 5px;
+	margin: 10px;
+	box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+	background-color: white;
+	vertical-align: top;
+}
+
+.result .titel
+{
+	display: block;
+	width: 100%;
+	font-size: 2em;
+}
+
+.result .band, .result .jaar
+{
+	font-weight: 300;
+}
+
+.result .jaar
+{
+	float: right;
+}
+
+/* notifications */
+
+.tip, .success, .error
+{
+	margin: 20px 10px;
+	padding: 20px;
+}
+
+.tip a, .success a, .error a
+{
+	color: rgba(0, 0, 0, .52);
+	text-decoration: none;
+}
+
+.tip a:hover,
+.success a:hover,
+.error a:hover
+{
+	color: rgba(0, 0, 0, .86);
+}
+
+.tip{background-color:#FFE8A1;border:2px solid #E7CA74;}
+.success{background-color:#B4FFB4;border:2px solid #87E687;}
+.error{background-color:#FFB2B2;border:2px solid #FF8383;}
+
+/* index style */
+
+.stretch
+{
+	text-align: center;
+	white-space: nowrap;
+	height: 100%;
+}
+
+.stretch:before
+{
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em;
+}
+
+.center
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.query
+{
+	margin-top: -50px;
+	width: 410px;
+	background: #333;
+	border-radius: 10px;
+	padding: 10px;
+	padding-top: 30px;
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, .51);
+}
+
+.radio-select
+{
+	margin: 0 10px;
+	border-radius: 7px;
+	box-shadow: 1px 1px 7px rgba(0, 0, 0, .51);
+}
+
+.query input[type="radio"]
+{
+	display: none;
+}
+
+.query .semi-button
+{
+	display: inline-block;
+	cursor: pointer;
+	width: 130px;
+	height: 40px;
+	background: #BBDEFB;
+	line-height: 40px;
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.semi-button:first-of-type
+{
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+
+.semi-button:last-of-type
+{
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+}
+
+.radio-menu:checked + .semi-button
+{
+	box-shadow: 1px 1px 7px rgba(0, 0, 0, .51) inset;
+	background: #64B5F6;
+}
+
+.query #search
+{
+	box-shadow: 1px 1px 7px rgba(0, 0, 0, .51) inset;
+	padding-right: 40px;
+}
+
+.query input
+{
+	display: block;
+	box-sizing: border-box;
+	border: none;
+	background: #64B5F6;
+	color: rgba(0, 0, 0, .87);
+	border-radius: 7px;
+	margin: 20px 10px;
+	padding: 10px;
+	width: calc(100% - 20px);
+	box-shadow: 1px 1px 7px rgba(0, 0, 0, .51);
+
+	-webkit-transition: background-color 50ms;
+	transition: background-color 50ms;
+}
+
+.query input:focus
+{
+	/*background-color: #42A5F5;*/
+	/*
+	Zorgt er voor dat de bg-color snel verandert
+	omdat je voor een ms niet gefocused bent op dat
+	ding als je op een knop drukt. (JS zet focus terug op input als je wegklikt)
+	*/
+
+	outline: none;
+}
+
+.query input[type="submit"]:hover
+{
+	background-color: #42A5F5;
+	cursor: pointer;
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, .51);
+}
+
+.query .query-input
+{
+	position: relative;
+}
+
+.query .dismiss
+{
+	cursor: pointer;
+	display: inline-block;
+	height: 25px;
+	width: 25px;
+	line-height: 25px;
+	position: absolute;
+	right: 18px;
+	top: 8px;
+	color: rgba(255, 255, 255, 0.8);
+	background: rgba(0, 0, 0, .28);
+	border-radius: 50%;
+}
+
+#search::-webkit-input-placeholder
+{
+	color: rgba(0, 0, 0, .51);
+}
+
+#search:-moz-placeholder
+{
+	color: rgba(0, 0, 0, .51);
+	opacity:  1;
+}
+
+#search::-moz-placeholder
+{
+	color: rgba(0, 0, 0, .51);
+	opacity:  1;
+}
+
+#search:-ms-input-placeholder
+{
+	color: rgba(0, 0, 0, .51);
+}
+
+h1
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 4em;
+}
+
+@media screen and (max-width: 720px)
+{
+	body
+	{
+		margin: 10px;
+	}
+
+	.wrapper
+	{
+		width: 100%;
+	}
+
+	.result
+	{
+		display: block;
+		margin-left: 0;
+		margin-right: 0;
+		width: initial; /* kut css */
+	}
+
+	.tip, .success, .error
+	{
+		margin: 20px 0;
+		padding: 20px;
+		display: block;
+	}
+}
+
+@media screen and (max-width: 400px)
+{
+	.right
+	{
+		float: none;
+		display: block;
+		text-align: left;
+		margin-top: 10px;
+	}
+}
