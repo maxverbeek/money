@@ -27,6 +27,7 @@ function plural($count, $singular, $plural = null)
 }
 
 $results = isset($results) ? $results : array();
+$fieldval = isset($fieldval) ? $fieldval : '';
 $c = count($results);
 
 $querystr = empty($_GET) ? '' : '?' . http_build_query($_GET);
