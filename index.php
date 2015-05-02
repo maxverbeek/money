@@ -29,7 +29,10 @@ $fieldvalue = isset($_GET['search']) ? $_GET['search'] : '';
 				--><input type="radio" class="radio-menu" name="f" id="jaar" value="jaar"<?php echo $checked == 'jaar' ? ' checked' : ''; ?>><!--
 				--><label class="semi-button" for="jaar">Jaar</label>
 
-				<input type="text" name="search" id="search" placeholder="Titel" value="<?php echo $fieldvalue; ?>">
+				<div class="query-input">
+					<input autofocus type="text" name="search" id="search" placeholder="<?php echo isset($checked) ? ucfirst($checked) : 'Titel'; ?>" value="<?php echo $fieldvalue; ?>">
+					<span id="empty" class="dismiss">&#x2715;</span>
+				</div>
 				<input type="submit" value="Zoek">
 			</form>
 		</div>
@@ -41,10 +44,20 @@ $fieldvalue = isset($_GET['search']) ? $_GET['search'] : '';
 		{
 			labels = $('.semi-button');
 			text = $('#search');
+			empty = $('#empty');
 
+			// Placeholder text replacement
 			labels.on('click', function ()
 			{
 				text.get(0).placeholder = this.innerText;
+				text.focus();
+			});
+
+			// Clear text button
+			empty.on('click', function ()
+			{
+				text.get(0).value = "";
+				text.focus();
 			});
 		});
 	</script>
