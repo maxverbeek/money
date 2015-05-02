@@ -120,7 +120,14 @@ body
 	border-radius: 10px;
 	padding: 10px;
 	padding-top: 30px;
-	box-shadow: 1px 2px 5px rgba(0, 0, 0, .66);
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, .51);
+}
+
+.radio-select
+{
+	margin: 0 10px;
+	border-radius: 7px;
+	box-shadow: 1px 1px 7px rgba(0, 0, 0, .51);
 }
 
 .query input[type="radio"]

@@ -20,14 +20,16 @@ $fieldvalue = isset($_GET['search']) ? $_GET['search'] : '';
 	<div class="stretch">
 		<div class="query center">
 			<form action="search.php" method="GET">
-				<input type="radio" class="radio-menu" name="f" id="titel" value="titel"<?php echo $checked == 'titel' ? ' checked': ''; ?>><!--
-				--><label class="semi-button" for="titel">Titel</label><!--
+				<div class="radio-select">
+					<input type="radio" class="radio-menu" name="f" id="titel" value="titel"<?php echo $checked == 'titel' ? ' checked': ''; ?>><!--
+					--><label class="semi-button" for="titel">Titel</label><!--
 
-				--><input type="radio" class="radio-menu" name="f" id="band" value="band"<?php echo $checked == 'band' ? ' checked' : ''; ?>><!--
-				--><label class="semi-button" for="band">Band</label><!--
+					--><input type="radio" class="radio-menu" name="f" id="band" value="band"<?php echo $checked == 'band' ? ' checked' : ''; ?>><!--
+					--><label class="semi-button" for="band">Band</label><!--
 
-				--><input type="radio" class="radio-menu" name="f" id="jaar" value="jaar"<?php echo $checked == 'jaar' ? ' checked' : ''; ?>><!--
-				--><label class="semi-button" for="jaar">Jaar</label>
+					--><input type="radio" class="radio-menu" name="f" id="jaar" value="jaar"<?php echo $checked == 'jaar' ? ' checked' : ''; ?>><!--
+					--><label class="semi-button" for="jaar">Jaar</label>
+				</div>
 
 				<div class="query-input">
 					<input autofocus type="text" name="search" id="search" placeholder="<?php echo isset($checked) ? ucfirst($checked) : 'Titel'; ?>" value="<?php echo $fieldvalue; ?>">
