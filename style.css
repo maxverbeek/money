@@ -160,6 +160,7 @@ body
 .query #search
 {
 	box-shadow: 1px 1px 7px rgba(0, 0, 0, .51) inset;
+	padding-right: 40px;
 }
 
 .query input
@@ -207,7 +208,7 @@ body
 {
 	cursor: pointer;
 	display: inline-block;
-	height: 24px;
+	height: 25px;
 	width: 25px;
 	line-height: 25px;
 	position: absolute;
