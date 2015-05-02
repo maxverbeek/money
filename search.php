@@ -29,6 +29,10 @@ function plural($count, $singular, $plural = null)
 $results = isset($results) ? $results : array();
 $c = count($results);
 
+$querystr = empty($_GET) ? '' : '?' . http_build_query($_GET);
+
+$index = 'index.php' . $querystr;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,12 +48,12 @@ $c = count($results);
 		<?php if (empty($results)): ?>
 			<div class="error">
 				<strong>Sorry!</strong> Er zijn geen zoekresultaten gevonden voor <strong><?php echo e($fieldval); ?></strong>.
-				<span class="right"><a href="index.php">Terug</a></span>
+				<span class="right"><a href="<?php echo $index; ?>">Terug</a></span>
 			</div>
 		<?php else: ?>
 			<div class="success">
 				Er <?php echo plural($c, 'is <strong>1 resultaat', "zijn <strong>{$c} resultaten"); ?></strong> gevonden.
-				<span class="right"><a href="index.php">Terug</a></span>
+				<span class="right"><a href="<?php echo $index; ?>">Terug</a></span>
 			</div>
 		<?php endif; ?>
 
