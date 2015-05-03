@@ -61,7 +61,7 @@ $index = 'index.php' . $querystr;
 		<?php foreach ($results as $result): ?>
 			<?php
 
-				$result->{$field} = preg_replace('/('. str_replace(['*', '%'], '.*', preg_quote($fieldval)) .')/i', "<strong>$1</strong>", e($result->{$field}));
+				$result->{$field} = preg_replace('/('. str_replace(['*', '%'], '.*', preg_quote($fieldval, '/')) .')/i', "<strong>$1</strong>", e($result->{$field}));
 
 			?>
 			--><div class="result">
