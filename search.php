@@ -57,20 +57,18 @@ $index = 'index.php' . $querystr;
 				<span class="right"><a href="<?php echo $index; ?>">Terug</a></span>
 			</div>
 		<?php endif; ?>
-		<!--
-		<?php foreach ($results as $result): ?>
-			<?php
 
-				$result->{$field} = preg_replace('/('. str_replace(['*', '%'], '.*', preg_quote($fieldval, '/')) .')/i', "<strong>$1</strong>", e($result->{$field}));
+		<?php foreach ($results as $result): // zet lelijk tegen de rest v/d php aan, om geen whitespace tussen divs te hebben
 
-			?>
-			--><div class="result">
+				$r = str_replace(['*', '%'], '.*', preg_quote($fieldval, '/'));
+				$result->{$field} = e($result->{$field});
+				$result->{$field} = preg_replace('/('. $r .')/i', "<strong>$1</strong>", $result->{$field});
+
+			?><div class="result">
 				<span class="titel<?php echo $field == 'titel' ? ' searched' : ''; ?>"><?php echo $result->titel; ?></span>
 				<span class="band<?php echo $field == 'band' ? ' searched' : ''; ?>"><?php echo $result->band; ?></span>
 				<span class="jaar<?php echo $field == 'jaar' ? ' searched' : ''; ?>"><?php echo $result->jaar; ?></span>
-			</div><!--
-		<?php endforeach; ?>
-		-->
+			</div><?php endforeach; // zet dicht op /div tag, om whitespace bug te voorkomen met inline-block ?>
 	</div>
 </body>
 </html>
