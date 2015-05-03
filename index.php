@@ -22,13 +22,13 @@ $fieldvalue = isset($_GET['search']) ? $_GET['search'] : '';
 			<form action="search.php" method="GET">
 				<div class="radio-select">
 					<input type="radio" class="radio-menu" name="f" id="titel" value="titel"<?php echo $checked == 'titel' ? ' checked': ''; ?>><!--
-					--><label class="semi-button" for="titel">Titel</label><!--
+					--><label class="semi-button" for="titel" data-type="text">Titel</label><!--
 
 					--><input type="radio" class="radio-menu" name="f" id="band" value="band"<?php echo $checked == 'band' ? ' checked' : ''; ?>><!--
-					--><label class="semi-button" for="band">Band</label><!--
+					--><label class="semi-button" for="band" data-type="text">Band</label><!--
 
 					--><input type="radio" class="radio-menu" name="f" id="jaar" value="jaar"<?php echo $checked == 'jaar' ? ' checked' : ''; ?>><!--
-					--><label class="semi-button" for="jaar">Jaar</label>
+					--><label class="semi-button" for="jaar" data-type="number">Jaar</label>
 				</div>
 
 				<div class="query-input">
@@ -48,23 +48,30 @@ $fieldvalue = isset($_GET['search']) ? $_GET['search'] : '';
 			text = $('#search');
 			empty = $('#empty');
 
-			// Placeholder text replacement
 			labels.on('click', function ()
 			{
+				// Goede placeholder
 				text.get(0).placeholder = this.innerText;
+
+				// Goede data-type (text|number)
+				text.get(0).type = this.dataset.type;
+
+				// Focus het textinvoer element, betere UX
 				text.focus();
 			});
 
-			// Clear text button
 			empty.on('click', function ()
 			{
+				// Maak textbox leeg
 				text.get(0).value = "";
+
+				// Focus het textinvoer element, betere UX
 				text.focus();
 			});
 
-			// Cursor aan het einde van de tekst on focus
 			text.on('focus', function ()
 			{
+				// Cursor aan het einde v/d text on focus
 				text.value = this.value;
 			});
 		});
