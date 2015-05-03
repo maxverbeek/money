@@ -22,18 +22,18 @@ $fieldvalue = isset($_GET['search']) ? $_GET['search'] : '';
 			<form action="search.php" method="GET">
 				<div class="radio-select">
 					<input type="radio" class="radio-menu" name="f" id="titel" value="titel"<?php echo $checked == 'titel' ? ' checked': ''; ?>><!--
-					--><label class="semi-button" for="titel" data-type="text">Titel</label><!--
+					--><label class="semi-button" for="titel" data-type="search" data-autocomplete="on">Titel</label><!--
 
 					--><input type="radio" class="radio-menu" name="f" id="band" value="band"<?php echo $checked == 'band' ? ' checked' : ''; ?>><!--
-					--><label class="semi-button" for="band" data-type="text">Band</label><!--
+					--><label class="semi-button" for="band" data-type="search" data-autocomplete="on">Band</label><!--
 
 					--><input type="radio" class="radio-menu" name="f" id="jaar" value="jaar"<?php echo $checked == 'jaar' ? ' checked' : ''; ?>><!--
-					--><label class="semi-button" for="jaar" data-type="number">Jaar</label>
+					--><label class="semi-button" for="jaar" data-type="number" data-autocomplete="off">Jaar</label>
 				</div>
 
 				<div class="query-input">
-					<input autofocus type="text" name="search" id="search" placeholder="<?php echo isset($checked) ? ucfirst($checked) : 'Titel'; ?>" value="<?php echo $fieldvalue; ?>">
-					<span id="empty" class="dismiss">&#x2715;</span>
+					<input required autofocus type="search" name="search" id="search" placeholder="<?php echo ucfirst($checked); ?>" value="<?php echo $fieldvalue; ?>">
+					<span id="empty" class="cancel">&#x2715;</span>
 				</div>
 				<input type="submit" value="Zoek">
 			</form>
@@ -55,6 +55,9 @@ $fieldvalue = isset($_GET['search']) ? $_GET['search'] : '';
 
 				// Goede data-type (text|number)
 				text.get(0).type = this.dataset.type;
+
+				// Autocomplete voor number uit
+				text.get(0).autocomplete = this.dataset.autocomplete;
 
 				// Focus het textinvoer element, betere UX
 				text.focus();
