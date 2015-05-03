@@ -62,7 +62,9 @@ $index = 'index.php' . $querystr;
 
 				$r = str_replace(['*', '%'], '.*', preg_quote($fieldval, '/'));
 				$result->{$field} = e($result->{$field});
-				$result->{$field} = preg_replace('/('. $r .')/i', "<strong>$1</strong>", $result->{$field});
+
+				// voorkom lege regex (-> tussen elk tegen een <strong> tag)
+				if ($fieldval) $result->{$field} = preg_replace('/('. $r .')/i', "<strong>$1</strong>", $result->{$field});
 
 			?><div class="result">
 				<span class="titel<?php echo $field == 'titel' ? ' searched' : ''; ?>"><?php echo $result->titel; ?></span>
