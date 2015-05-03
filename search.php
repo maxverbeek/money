@@ -60,7 +60,7 @@ $index = 'index.php' . $querystr;
 
 		<?php foreach ($results as $result): // zet lelijk tegen de rest v/d php aan, om geen whitespace tussen divs te hebben
 
-				$r = str_replace(['*', '%'], '.*', preg_quote($fieldval, '/'));
+				$r = str_replace(['*', '%'], '.*', preg_quote(e($fieldval), '/'));
 				$result->{$field} = e($result->{$field});
 
 				// voorkom lege regex (-> tussen elk tegen een <strong> tag)
