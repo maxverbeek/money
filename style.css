@@ -12,14 +12,10 @@ body
 {
 	font-family: 'Roboto', sans-serif;
 	color: #444;
+	font-size: 18px;
 	line-height: 1.6;
 	background-color: #FFF;
 	background-color: #EEEEEE;
-}
-
-*
-{
-	font-size: 18px; /* HTML whitespace fix */
 }
 
 .right
@@ -32,7 +28,6 @@ body
 {
 	max-width: 1100px;
 	margin: 0 auto;
-	font-size: 0; /* HTML whitespace fix */
 }
 
 .result
@@ -61,6 +56,11 @@ body
 .result .jaar
 {
 	float: right;
+}
+
+.searched
+{
+	color: #1E88E5;
 }
 
 /* notifications */
@@ -172,6 +172,7 @@ body
 
 .query input
 {
+	font: 18px/1.6 'Roboto', sans-serif;
 	display: block;
 	box-sizing: border-box;
 	border: none;
@@ -179,6 +180,7 @@ body
 	color: rgba(0, 0, 0, .87);
 	border-radius: 7px;
 	margin: 20px 10px;
+	height: 41px;
 	padding: 10px;
 	width: calc(100% - 20px);
 	box-shadow: 1px 1px 7px rgba(0, 0, 0, .51);
