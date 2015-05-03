@@ -12,14 +12,10 @@ body
 {
 	font-family: 'Roboto', sans-serif;
 	color: #444;
+	font-size: 18px;
 	line-height: 1.6;
 	background-color: #FFF;
 	background-color: #EEEEEE;
-}
-
-*
-{
-	font-size: 18px; /* HTML whitespace fix */
 }
 
 .right
@@ -32,7 +28,6 @@ body
 {
 	max-width: 1100px;
 	margin: 0 auto;
-	font-size: 0; /* HTML whitespace fix */
 }
 
 .result
@@ -61,6 +56,11 @@ body
 .result .jaar
 {
 	float: right;
+}
+
+.searched
+{
+	color: #1E88E5;
 }
 
 /* notifications */

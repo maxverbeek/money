@@ -57,14 +57,20 @@ $index = 'index.php' . $querystr;
 				<span class="right"><a href="<?php echo $index; ?>">Terug</a></span>
 			</div>
 		<?php endif; ?>
-
+		<!--
 		<?php foreach ($results as $result): ?>
-			<div class="result">
-				<span class="titel"><?php echo e($result->titel); ?></span>
-				<span class="band"><?php echo e($result->band); ?></span>
-				<span class="jaar"><?php echo e($result->jaar); ?></span>
-			</div>
+			<?php
+
+				$result->{$field} = preg_replace('/('. str_replace(['*', '%'], '.*', preg_quote($fieldval)) .')/i', "<strong>$1</strong>", e($result->{$field}));
+
+			?>
+			--><div class="result">
+				<span class="titel<?php echo $field == 'titel' ? ' searched' : ''; ?>"><?php echo $result->titel; ?></span>
+				<span class="band<?php echo $field == 'band' ? ' searched' : ''; ?>"><?php echo $result->band; ?></span>
+				<span class="jaar<?php echo $field == 'jaar' ? ' searched' : ''; ?>"><?php echo $result->jaar; ?></span>
+			</div><!--
 		<?php endforeach; ?>
+		-->
 	</div>
 </body>
 </html>
