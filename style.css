@@ -189,11 +189,18 @@ input[type="search"]::-webkit-search-cancel-button {
 	appearance: none;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]
+{
+	-webkit-appearance: textbox;
+	-moz-appearance: textbox;
+	appearance: textbox;
+}
+
+/*input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button
 {
 	-webkit-appearance: none;
-}
+}*/
 
 
 .query input

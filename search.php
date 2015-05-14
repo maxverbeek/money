@@ -2,7 +2,7 @@
 
 require 'Database.php';
 
-$db = new Database('db-werkend', 'root', '', '127.0.0.1');
+$db = new PDO('mysql:host=127.0.0.1;dbname=db-werkend', 'root', '');
 
 $field = isset($_GET['f']) && in_array($_GET['f'], ['titel', 'band', 'jaar'])
 		? $_GET['f']
@@ -10,8 +10,18 @@ $field = isset($_GET['f']) && in_array($_GET['f'], ['titel', 'band', 'jaar'])
 
 if (isset($_GET['search']))
 {
-	$fieldval = $_GET['search'];
-	$results = $db->like('platen', "{$field}, *{$fieldval}*")->result();
+	$fieldval = htmlentities($_GET['search']);
+
+	$query = $db->prepare("
+		SELECT platen.id AS platen_id, platen.titel AS titel, bands.naam AS band, platen.jaar AS jaar, bands.id AS band_id
+		FROM `platen`
+		INNER JOIN bands ON platen.band = bands.id
+		HAVING `{$field}` LIKE ?
+	");
+
+	$results = $query->execute(['%'.str_replace('*', '%', $fieldval).'%']);
+
+	$results = $results ? $query->fetchAll(PDO::FETCH_OBJ) : [];
 }
 
 function e($str)
@@ -24,6 +34,11 @@ function plural($count, $singular, $plural = null)
 	$plural = $plural ?: $singular . 's';
 
 	return $count == 1 ? $singular : $plural;
+}
+
+function dd()
+{
+	array_map(function ($d) {var_dump($d);}, func_get_args()); die();
 }
 
 $results = isset($results) ? $results : array();
@@ -63,8 +78,11 @@ $index = 'index.php' . $querystr;
 				$r = str_replace(['*', '%'], '.*', preg_quote($fieldval, '/'));
 
 				// voorkom lege regex (-> tussen elk tegen een <strong> tag)
-				if ($fieldval) $result->{$field} = preg_replace('/('. $r .')/i', "<strong>$1</strong>", $result->{$field});
-				$result->{$field} = strip_tags($result->{$field}, '<strong>');
+				if ($fieldval)
+				{
+					$result->{$field} = preg_replace('/('. $r .')/i', "<strong>$1</strong>", html_entity_decode($result->{$field}));
+					$result->{$field} = str_replace([e('<strong>'), e('</strong>')], ['<strong>', '</strong>'], e($result->{$field}));
+				}
 
 			?><div class="result">
 				<span class="titel<?php echo $field == 'titel' ? ' searched' : ''; ?>"><?php echo $result->titel; ?></span>
