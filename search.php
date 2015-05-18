@@ -1,8 +1,11 @@
 <?php
 
-require 'Database.php';
+require 'Config.php';
 
-$db = new PDO('mysql:host=127.0.0.1;dbname=platen', 'root', 'root');
+$config = new Twist\Support\Config('config');
+
+$db = new PDO(sprintf("mysql:host=%s;dbname=%s", $config['db.host'], $config['db.dbname']),
+	$config['db.username'], $config['db.password']);
 
 $field = isset($_GET['f']) && in_array($_GET['f'], ['titel', 'band', 'jaar'])
 		? $_GET['f']
