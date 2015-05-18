@@ -10,7 +10,7 @@ class Config implements ArrayAccess
 
 	public function __construct($directory)
 	{
-		$this->directory = $directory;
+		$this->directory = realpath($directory);
 	}
 
 	public function set($key, $value)
