@@ -1,8 +1,11 @@
 <?php
 
-require 'Database.php';
+require 'Config.php';
 
-$db = new PDO('mysql:host=127.0.0.1;dbname=db-werkend', 'root', '');
+$config = new Twist\Support\Config('config');
+
+$db = new PDO(sprintf("mysql:host=%s;dbname=%s", $config['db.host'], $config['db.dbname']),
+	$config['db.username'], $config['db.password']);
 
 $field = isset($_GET['f']) && in_array($_GET['f'], ['titel', 'band', 'jaar'])
 		? $_GET['f']
@@ -86,7 +89,7 @@ $index = 'index.php' . $querystr;
 
 			?><div class="result">
 				<span class="titel<?php echo $field == 'titel' ? ' searched' : ''; ?>"><?php echo $result->titel; ?></span>
-				<span class="band<?php echo $field == 'band' ? ' searched' : ''; ?>"><?php echo $result->band; ?></span>
+				<span class="band<?php echo $field == 'band' ? ' searched' : ''; ?>"><?php echo ucwords($result->band); ?></span>
 				<span class="jaar<?php echo $field == 'jaar' ? ' searched' : ''; ?>"><?php echo $result->jaar; ?></span>
 			</div><?php endforeach; // zet dicht op /div tag, om whitespace bug te voorkomen met inline-block ?>
 	</div>
