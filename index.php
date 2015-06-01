@@ -16,7 +16,7 @@ $fieldvalue = isset($_GET['search']) ? $_GET['search'] : '';
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-	<h1>Marc's <small style="font-size:0.1em;">kut</small>muziek</h1>
+	<h1>Marc's <small style="font-size:0.01em;">kut</small>muziek</h1>
 	<div class="stretch">
 		<div class="query center">
 			<form action="search.php" method="GET">
