@@ -58,7 +58,7 @@ if (! isset($platen, $info))
 
 			?><div class="result">
 				<span class="titel"><?php echo $plaat->titel; ?></span>
-				<span class="band"><?php echo ucwords($plaat->band); ?></span>
+				<span class="band"><?php echo ucwords($info->naam); ?></span>
 				<span class="jaar"><?php echo $plaat->jaar; ?></span>
 			</div><?php
 
