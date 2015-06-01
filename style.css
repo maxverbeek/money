@@ -41,6 +41,11 @@ body
 	vertical-align: top;
 }
 
+.result:last-child:nth-child(even)
+{
+	width: calc(100% - 30px);
+}
+
 .result .titel
 {
 	display: block;
