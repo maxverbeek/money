@@ -11,35 +11,58 @@ if (isset($_GET['id']))
 {
 	$id = (int) $_GET['id'];
 
-	$query = $db->prepare("
-	SELECT platen.titel as titel, platen.jaar as jaar, bands.naam as band, bands.page_link as page_link
-	FROM platen
-	INNER JOIN bands ON platen.band = bands.id
-	WHERE band = ?
+	$platenquery = $db->prepare("
+	SELECT * FROM platen WHERE band = ?
 	");
 
-	if($query->execute([$id]) && $query->rowCount())
+	if ($platenquery->execute([$id]) && $platenquery->rowCount())
 	{
-		$band = $results[0]->band;
+		$platen = $platenquery->fetchAll(PDO::FETCH_OBJ);
+	}
+
+	$infoquery = $db->prepare("
+	SELECT * FROM bands WHERE id = ?
+	");
+
+	if ($infoquery->execute([$id]) && $infoquery->rowCount())
+	{
+		$info = $infoquery->fetchAll(PDO::FETCH_OBJ)[0];
 	}
 }
 
-if (! isset($band))
+if (! isset($platen, $info))
 {
 	header("Location: index.php");
+	die();
 }
-
-
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title><?php echo "Informatie over $band" ?></title>
+	<title>Informatie over <?php echo $info->naam; ?></title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+	<div class="wrapper">
+
+		<h1 class="normal"><?php echo $info->naam; ?></h1>
+
+		<div class="beschrijving">
+			<?php echo $info->beschrijving; ?>
+		</div>
+
+		<?php foreach ($platen as $plaat):
+
+			?><div class="result">
+				<span class="titel"><?php echo $plaat->titel; ?></span>
+				<span class="band"><?php echo ucwords($plaat->band); ?></span>
+				<span class="jaar"><?php echo $plaat->jaar; ?></span>
+			</div><?php
+
+		endforeach;	?>
+	</div>
 </body>
 </html>
