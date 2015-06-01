@@ -2,7 +2,7 @@
 
 return [
 	'host' => '127.0.0.1',
-	'dbname' => 'db-werkend',
+	'dbname' => 'platen',
 	'username' => 'root',
 	'password' => ''
 ];
