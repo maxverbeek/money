@@ -51,7 +51,7 @@ if (! isset($platen, $info))
 
 	<div class="wrapper">
 
-		<h1 class="normal"><?php echo $info->naam; ?></h1>
+		<h1 class="normal"><?php echo ucwords($info->naam); ?></h1>
 
 		<h2>Beschrijving</h2>
 		<div class="beschrijving">
