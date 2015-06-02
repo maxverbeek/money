@@ -37,20 +37,6 @@ body
 	max-width: 1200px;
 }
 
-.intro .quicklinks
-{
-	position: absolute;
-	top: 10px;
-	right: 10px;
-}
-
-.intro .quicklinks a
-{
-	color: white;
-	font-size: 2em;
-	text-decoration: none;
-}
-
 .down
 {
 	display: block;
@@ -66,6 +52,7 @@ body
 	background-repeat: no-repeat;
 	border-radius: 50%;
 	border: 2px solid white;
+	transition: background .1s ease-in-out;
 }
 
 .down:hover
