@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:500,400,300);
 
 html, body
 {
@@ -58,6 +58,118 @@ body
 .down:hover
 {
 	background-color: rgba(255, 255, 255, .2);
+}
+
+.form .radio input
+{
+	display: none;
+}
+
+.radio-container
+{
+	margin-top: 40px;
+	margin-bottom: 10px;
+}
+
+.radio
+{
+	display: inline-block;
+	clear: both;
+	border: 2px solid rgba(255, 255, 255, .86);
+	box-shadow: 0 0 7px rgba(0, 0, 0, .3);
+}
+
+.form .radio label
+{
+	cursor: pointer;
+	display: inline-block;
+	float: left;
+	min-width: 120px;
+	padding: 10px;
+	font-size: 1.3em;
+	letter-spacing: 1.1px;
+	color: white;
+}
+
+.form input:checked + label
+{
+	background-color: rgba(255, 255, 255, .86);
+	color: #E74C3C;
+}
+
+.form input
+{
+	margin: 0;
+	padding: 0;
+	border: none;
+	font-family: 'Roboto', sans-serif;
+
+	padding: 10px;
+	font-size: 1.3em;
+	color: white;
+	background-color: transparent;
+}
+
+.form .inputfield
+{
+	display: inline-block;
+	border: 2px solid rgba(255, 255, 255, .8);
+	box-shadow: 0 0 7px rgba(0, 0, 0, .3);
+	width: 420px;
+}
+
+.form .inputfield input
+{
+	border: none;
+	outline: none;
+}
+
+.form .inputfield input[type="text"]
+{
+	width: calc(100% - 48px);
+	box-sizing: border-box;
+	float: left;
+}
+
+.form .inputfield input[type="submit"]
+{
+	cursor: pointer;
+	background-color: #c0392b;
+	float: right;
+	background-image: url(search-icon.svg);
+	width: 48px;
+	height: 48px;
+	padding: 10px;
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.form .inputfield input[type="submit"]:hover
+{
+	background-color: #7A1B11;
+}
+
+.form input[type="text"]::-webkit-input-placeholder
+{
+	color: rgba(255, 255, 255, .5);
+}
+
+.form input[type="text"]:-moz-placeholder
+{
+	color: rgba(255, 255, 255, .5);
+	opacity:  1;
+}
+
+.form input[type="text"]::-moz-placeholder
+{
+	color: rgba(255, 255, 255, .5);
+	opacity:  1;
+}
+
+.form input[type="text"]:-ms-input-placeholder
+{
+	color: rgba(255, 255, 255, .5);
 }
 
 .intro h1, .intro h2
