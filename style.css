@@ -24,6 +24,52 @@ body
 	text-align: right;
 }
 
+.back
+{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-size: 1.2em;
+}
+
+.back a
+{
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px dotted #444;
+}
+
+.back a:hover
+{
+	color: #ee5555;
+	border-bottom-color: #ee5555;
+}
+
+.asset iframe, .asset img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.asset
+{
+	float: right;
+	height: 30vw;
+	width: 40vw;
+	margin: 0 0 20px 20px;
+}
+
+.beschrijving
+{
+	float: left;
+	margin: 0 10px 20px;
+}
+
+h2
+{
+	margin-left: 10px;
+}
+
 .wrapper
 {
 	max-width: 1100px;
@@ -56,6 +102,19 @@ body
 .result .band, .result .jaar
 {
 	font-weight: 300;
+}
+
+.result .band a
+{
+	border-bottom: 1px dotted #444;
+	text-decoration: none;
+	color: inherit;
+}
+
+.result .band a:hover
+{
+	color: #ee5555;
+	border-bottom-color: #ee5555;
 }
 
 .result .jaar
@@ -309,12 +368,24 @@ h1.normal
 		width: 100%;
 	}
 
+	.result:nth-of-type(even):last-child
+	{
+		width: initial;
+	}
+
 	.result
 	{
 		display: block;
 		margin-left: 0;
 		margin-right: 0;
 		width: initial; /* kut css */
+	}
+
+	.asset
+	{
+		width: calc(100vw - 40px);
+		height: calc(75.5vw - 30px);
+		margin: 0;
 	}
 
 	.tip, .success, .error

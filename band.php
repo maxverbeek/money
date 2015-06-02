@@ -41,18 +41,34 @@ if (! isset($platen, $info))
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Informatie over <?php echo $info->naam; ?></title>
+	<title>Informatie over <?php echo ucwords($info->naam); ?></title>
 	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
+
+	<div class="back"><a href="javascript:history.back()">Terug..</a></div>
 
 	<div class="wrapper">
 
 		<h1 class="normal"><?php echo $info->naam; ?></h1>
 
+		<h2>Beschrijving</h2>
 		<div class="beschrijving">
+			<?php if ($info->youtube): ?>
+				<div class="asset">
+					<iframe src="//www.youtube.com/embed/<?php echo $info->youtube; ?>?rel=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+			<?php elseif ($info->image): ?>
+				<div class="asset">
+					<img src="<?php echo $info->image; ?>" alt="<?php echo $info->naam; ?>">
+				</div>
+			<?php endif; ?>
+
 			<?php echo $info->beschrijving; ?>
 		</div>
+
+		<h2>Platen van <?php echo ucwords($info->naam); ?></h2>
 
 		<?php foreach ($platen as $plaat):
 
