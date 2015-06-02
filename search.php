@@ -44,6 +44,11 @@ function dd()
 	array_map(function ($d) {var_dump($d);}, func_get_args()); die();
 }
 
+function bandlink($id, $band)
+{
+	return '<a href="band.php?id=' . $id .'">' . $band . '</a>';
+}
+
 $results = isset($results) ? $results : array();
 $fieldval = isset($fieldval) ? $fieldval : '';
 $c = count($results);
@@ -89,7 +94,7 @@ $index = 'index.php' . $querystr;
 
 			?><div class="result">
 				<span class="titel<?php echo $field == 'titel' ? ' searched' : ''; ?>"><?php echo $result->titel; ?></span>
-				<span class="band<?php echo $field == 'band' ? ' searched' : ''; ?>"><?php echo ucwords($result->band); ?></span>
+				<span class="band<?php echo $field == 'band' ? ' searched' : ''; ?>"><?php echo bandlink($result->band_id, ucwords($result->band)); ?></span>
 				<span class="jaar<?php echo $field == 'jaar' ? ' searched' : ''; ?>"><?php echo $result->jaar; ?></span>
 			</div><?php endforeach; // zet dicht op /div tag, om whitespace bug te voorkomen met inline-block ?>
 	</div>
