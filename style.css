@@ -37,6 +37,21 @@ body
 	max-width: 1200px;
 }
 
+.intro section h1, .intro section h2
+{
+	color: #e74c3c;
+	/*display: block;*/
+	width: auto;
+	border-bottom: 2px dotted #e74C3C;
+}
+
+.intro section h1:before, .intro section h2:before
+{
+	content: "#";
+	color: rgba(231, 76, 60, .8);
+	padding-right: 10px;
+}
+
 .down
 {
 	display: block;
@@ -190,6 +205,16 @@ body
 {
 	font-size: 2em;
 	margin-top: 0.1em;
+}
+
+.bands .band:nth-child(even)
+{
+	background-color: #ecf0f1;
+}
+
+.bands .band:nth-child(odd)
+{
+	background-color: #bdc3c7;
 }
 
 .right
@@ -536,6 +561,31 @@ h1.normal
 	body
 	{
 		margin: 10px;
+	}
+
+	body.intro
+	{
+		margin: 0;
+	}
+
+	.intro header
+	{
+		padding-top: 20px;
+	}
+
+	.intro header h1
+	{
+		font-size: 3em;
+	}
+
+	.intro header h2
+	{
+		font-size: 1.5em;
+	}
+
+	.intro section
+	{
+		padding: 20px 10px;
 	}
 
 	.wrapper
