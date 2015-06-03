@@ -21,11 +21,12 @@ body
 .intro header
 {
 	padding-top: 200px;
+	padding-bottom: 20px;
 	background-color: #e74c3c;
-	background: -webkit-linear-gradient(45deg, #E74C3C, #E76F3C);
+	background: -webkit-linear-gradient(45deg, #E74C3C, #E7833C);
 	text-align: center;
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	box-sizing: border-box;
 }
 
@@ -67,12 +68,13 @@ body
 	background-repeat: no-repeat;
 	border-radius: 50%;
 	border: 2px solid white;
-	transition: background .1s ease-in-out;
+	transition: background .1s ease-in-out, box-shadow .1s ease-in-out;
 }
 
 .down:hover
 {
 	background-color: rgba(255, 255, 255, .2);
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, .56);
 }
 
 .form .radio input
@@ -91,7 +93,8 @@ body
 	display: inline-block;
 	clear: both;
 	border: 2px solid rgba(255, 255, 255, .86);
-	box-shadow: 0 0 7px rgba(0, 0, 0, .3);
+	/*box-shadow: 0 0 7px rgba(0, 0, 0, .3);*/
+	background-color: rgba(255, 255, 255, .08);
 }
 
 .form .radio label
@@ -128,8 +131,8 @@ body
 .form .inputfield
 {
 	display: inline-block;
-	border: 2px solid rgba(255, 255, 255, .8);
-	box-shadow: 0 0 7px rgba(0, 0, 0, .3);
+	position: relative; /* submit button */
+	background-color: rgba(255, 255, 255, .08);
 	width: 420px;
 }
 
@@ -141,16 +144,26 @@ body
 
 .form .inputfield input[type="text"]
 {
-	width: calc(100% - 48px);
+	width: 100%;
+	padding-right: 58px;
+	border: 2px solid rgba(255, 255, 255, .8);
 	box-sizing: border-box;
 	float: left;
+	transition: box-shadow 100ms ease-in-out;
+}
+
+.form .inputfield input[type="text"]:focus
+{
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, .56);
 }
 
 .form .inputfield input[type="submit"]
 {
 	cursor: pointer;
 	background-color: #c0392b;
-	float: right;
+	position: absolute;
+	right: 2px; /* border */
+	top: 2px; /* border */
 	background-image: url(search-icon.svg);
 	width: 48px;
 	height: 48px;
@@ -195,7 +208,6 @@ body
 	font-weight: 300;
 	display: inline-block;
 	box-sizing: border-box;
-	width: 95%;
 	color: white;
 	margin-top: 0;
 	margin-bottom: 0.2em;
@@ -205,16 +217,6 @@ body
 {
 	font-size: 2em;
 	margin-top: 0.1em;
-}
-
-.bands .band:nth-child(even)
-{
-	background-color: #ecf0f1;
-}
-
-.bands .band:nth-child(odd)
-{
-	background-color: #bdc3c7;
 }
 
 .right
