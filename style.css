@@ -51,7 +51,7 @@ html, body, input
 
 .radio
 {
-	border: 2px solid #ecf0f1;
+	border: 2px solid rgba(236, 240, 241, 1);
 	overflow: hidden;
 }
 
@@ -70,14 +70,14 @@ html, body, input
 	line-height: 40px;
 	cursor: pointer;
 
-	background-color: rgba(255, 255, 255, .1);
+	background-color: rgba(236, 240, 241, .1);
 	color: #ecf0f1;
 	font-size: 1.5em;
 }
 
 .radio input:checked + label
 {
-	background-color: #ecf0f1;
+	background-color: rgba(236, 240, 241, 1);
 	color: #E74C3C;
 }
 
@@ -93,6 +93,7 @@ html, body, input
 	background-color: #ecf0f1;
 	border: 2px solid #ecf0f1;
 	outline: none;
+	transition: box-shadow .2s ease-in-out;
 }
 
 .form .textinput:focus
@@ -130,6 +131,7 @@ html, body, input
 	border: 2px solid #ecf0f1;
 	border-radius: 50%;
 	cursor: pointer;
+	transition: box-shadow .2s ease-in-out, background-color .2s ease-in-out;
 }
 
 .down:hover
